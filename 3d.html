@@ -9,7 +9,7 @@
       var img;
       
       function preload() {
-        img = loadImage('sonic-coin.png');
+        img = loadImage('galaxy.jpg');
       }
       
       function setup() {
@@ -25,7 +25,7 @@
         noStroke();
         rotateY(frameCount * 0.01);
         texture(img);
-        sphere(300);
+        torus(200, 50, 100, 100);
       }
     </script>
   </body>
