@@ -6,6 +6,11 @@
     
     
     <script>
+      var img;
+      
+      function preload() {
+        img = loadImage('galaxy.jpg');
+      }
       
       function setup() {
         createCanvas(window.innerWidth,window.innerHeight,WEBGL);
@@ -15,10 +20,11 @@
         background(255);
         var locX = mouseX - width/2;
         var locY = mouseY - height/2;
-        directionalLight(0,255,255, -locX, -locY, -175); //directionalLight(r,g,b,x,y,z)
+        directionalLight(255,255,255, -locX, -locY, -175); //directionalLight(r,g,b,x,y,z)
         specularMaterial(255);
         noStroke();
-        sphere(300);
+        texture(img);
+        torus(100,50);
       }
     </script>
   </body>
