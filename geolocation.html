@@ -18,6 +18,10 @@
       
       function setup() {
         fence = new geoFencePolygon(polygon, insideTheFence, outsideTheFence, 'mi');
+        fenceOptions = {
+          enableHighAccuracy: true;
+          timeout: 2000
+        }
       }
       
       function insideTheFence(position) {
