@@ -21,19 +21,19 @@
         fenceOptions = {
           enableHighAccuracy: true;
           timeout: 2000
-        }
+        };
       }
       
       function insideTheFence(position) {
-        window.getElementById('lat').innerHTML = "Latitude: " + position.latitude;
-        window.getElementById('lon').innerHTML = "Longitude: " + position.longitude;
-        window.getElementById('text').innerHTML = "User is inside the fence";
+        window.getElementById('lat').innerHTML = ("Latitude: " + position.latitude);
+        window.getElementById('lon').innerHTML = ("Longitude: " + position.longitude);
+        window.getElementById('text').innerHTML = ("User is inside the fence");
       }
       
       function outsideTheFence(position) {
-        window.getElementById('lat').innerHTML = "Latitude: " + position.latitude;
-        window.getElementById('lon').innerHTML = "Longitude: " + position.longitude;
-        window.getElementById('text').innerHTML = "User is outside the fence";
+        window.getElementById('lat').innerHTML = ("Latitude: " + position.latitude);
+        window.getElementById('lon').innerHTML = ("Longitude: " + position.longitude);
+        window.getElementById('text').innerHTML = ("User is outside the fence");
       }
     </script>
   </body>
