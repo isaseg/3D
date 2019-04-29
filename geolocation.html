@@ -4,14 +4,32 @@
     <script src="p5.geolocation.js"></script>
   </head>
   <body>
+    <p id="lat"></p>
+    <p id="lon"></p>
+    <p id="text"></p>
     <script>
+    var fence;
+    var polygon [
+        {lat: 21.312016, lon: -157.838460},
+        {lat: 21.312036, lon: -157.838369},
+        {lat: 21.311851, lon: -157.838257},
+        {lat: 21.311806, lon: -157.838380},
+      ];
+      
       function setup() {
-        if (geoCheck() == true) {
-          window.alert("Geolocation is true");
-        }
-        else {
-          window.alert("No");
+        fence = new geoFencePolygon(polygon, insideTheFence, outsideTheFence, 'mi');
       }
+      
+      function insideTheFence(position) {
+        window.getElementById('lat').innerHTML = "INlat: " + position.latitude;
+        window.getElementById('lon').innerHTML = "INlong: " + position.longitude;
+        window.getElementById('text').innerHTML = "user is inside the fence";
+      }
+      
+      function outsideTheFence(position) {
+        window.getElementById('lat').innerHTML = "OUTlat: " + position.latitude;
+        window.getElementById('lon').innerHTML = "OUTlong: " + position.longitude;
+        window.getElementById('text').innerHTML = "user is outside the fence";
       }
     </script>
   </body>
