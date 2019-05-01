@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <script src="p5.min.js"></script>
+    <script src="p5.geolocation.js"></script>
+  </head>
+  <body>
+    <p id="dist"></p>
+    <script>
+    var distance;
+    var userloc;
+      
+      function preload() {
+        userloc = getCurrentPosition();
+      }
+      
+      function setup() {
+        distance = calcGeoDistance(21.311974, -157.838385, userloc.latitude, userloc.longitude, 'mi');
+        document.getElementById('dist').innerHTML = distance;
+        watchPosition(positionChanged);
+      }
+      
+      function positionChanged() {
+        document.getElementById('dist').innerHTML = distance;
+      }
+    </script>
+  </body>
+</html>
