@@ -4,24 +4,38 @@
     <script src="p5.geolocation.js"></script>
   </head>
   <body>
+    <p id="locavail"></p>
     <p id="dist"></p>
     <script>
     var distance;
-    var userloc;
-      
-      function preload() {
-        userloc = getCurrentPosition();
-      }
+    var userlat;
+    var userlon;
       
       function setup() {
-        distance = calcGeoDistance(21.311974, -157.838385, userloc.latitude, userloc.longitude, 'mi');
-        document.getElementById('dist').innerHTML = distance;
-        watchPosition(positionChanged);
+        if (geoCheck() == true) {
+          document.getElementById('locavail').innerHTML = "Ready";
+        }
+        else {
+          document.getElementById('locavail').innerHTML = "No bueno";
+        }
+        intervalCurrentPosition(positionPing, 1000);
+        enableHighAccuracy: true;
       }
       
-      function positionChanged() {
-        document.getElementById('dist').innerHTML = distance;
+      function positionPing(position) {
+        userlat = position.latitude;
+        userlon = position.longitude;
+        distance = calcGeoDistance(21.311974, -157.838385, userlat, userlon, 'mi');
+        document.getElementById('dist').innerHTML = distance.toFixed(5);
+        if (distance < 0.001) {
+          document.getElementById('locavail').innerHTML = "YOU FOUND THE TREASURE!"
+        }
+        else {
+          document.getElementById('locavail').innerHTML = "";
+        }
       }
+      
+      function
     </script>
   </body>
 </html>
