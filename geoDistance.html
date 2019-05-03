@@ -10,6 +10,8 @@
     var distance;
     var userlat;
     var userlon;
+    var treasurelat = 21.311974;
+    var treasurelon = -157.838385;
       
       function setup() {
         if (geoCheck() == true) {
@@ -18,16 +20,16 @@
         else {
           document.getElementById('locavail').innerHTML = "No bueno";
         }
-        intervalCurrentPosition(positionPing, 1000);
+        intervalCurrentPosition(positionPing, 500);
         enableHighAccuracy: true;
       }
       
       function positionPing(position) {
         userlat = position.latitude;
         userlon = position.longitude;
-        distance = calcGeoDistance(21.311974, -157.838385, userlat, userlon, 'mi');
+        distance = calcGeoDistance(userlat, userlon, treasurelat, treasurelon, 'mi');
         document.getElementById('dist').innerHTML = distance.toFixed(5);
-        if (distance < 0.001) {
+        if (distance < 0.009) {
           document.getElementById('locavail').innerHTML = "YOU FOUND THE TREASURE!"
         }
         else {
@@ -35,7 +37,6 @@
         }
       }
       
-      function
     </script>
   </body>
 </html>
