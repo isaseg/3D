@@ -18,10 +18,10 @@
       
       function draw() {
         background(255);
-        var locX = mouseX - width/2;
-        var locY = mouseY - height/2;
+        var locX = mouseX;
+        var locY = mouseY;
         if (mouseIsPressed) {
-          rotateY(locY);
+          rotateY(locX);
         }
         noStroke();
         texture(img);
