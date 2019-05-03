@@ -4,9 +4,9 @@
     <script src="p5.geolocation.js"></script>
   </head>
   <body>
-    <p id="lat">Latitude: IDK</p>
-    <p id="lon">Longitude: IDK</p>
-    <p id="text">User location unknown</p>
+    <p id="one">Latitude: IDK</p>
+    <p id="two">Longitude: IDK</p>
+    <p id="three">User location unknown</p>
     <script>
     var fence;
     var polygon [
@@ -20,20 +20,20 @@
         fence = new geoFencePolygon(polygon, insideTheFence, outsideTheFence, 'mi');
         fenceOptions = {
           enableHighAccuracy: true;
-          timeout: 2000
+          timeout: 2000;
         };
       }
       
       function insideTheFence(position) {
-        document.getElementById('lat').innerHTML = ("Latitude: " + position.latitude);
-        document.getElementById('lon').innerHTML = ("Longitude: " + position.longitude);
-        document.getElementById('text').innerHTML = ("User is inside the fence");
+        document.getElementById('one').innerHTML = ("Latitude: " + position.latitude);
+        document.getElementById('two').innerHTML = ("Longitude: " + position.longitude);
+        document.getElementById('three').innerHTML = ("User is inside the fence");
       }
       
       function outsideTheFence(position) {
-        document.getElementById('lat').innerHTML = ("Latitude: " + position.latitude);
-        document.getElementById('lon').innerHTML = ("Longitude: " + position.longitude);
-        document.getElementById('text').innerHTML = ("User is outside the fence");
+        document.getElementById('one').innerHTML = ("Latitude: " + position.latitude);
+        document.getElementById('two').innerHTML = ("Longitude: " + position.longitude);
+        document.getElementById('three').innerHTML = ("User is outside the fence");
       }
     </script>
   </body>
