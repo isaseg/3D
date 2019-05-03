@@ -4,9 +4,9 @@
     <script src="p5.geolocation.js"></script>
   </head>
   <body>
-    <p id="one">Latitude: IDK</p>
-    <p id="two">Longitude: IDK</p>
-    <p id="three">User location unknown</p>
+    <p id="one"></p>
+    <p id="two"></p>
+    <p id="three"></p>
     <script>
     var fence;
     var polygon: [
@@ -17,6 +17,12 @@
       ];
       
       function setup() {
+        if (geoCheck() == true) {
+          document.getElementById('one').innerHTML = "Ready";
+        }
+        else {
+          document.getElementById('one').innerHTML = "No bueno";
+        }
         fence = new geoFencePolygon(polygon, insideTheFence, outsideTheFence, 'mi');
         fenceOptions = {
           enableHighAccuracy: true;
