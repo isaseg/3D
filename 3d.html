@@ -20,13 +20,16 @@
         background(255);
         var locX = mouseX;
         var locY = mouseY;
+        if (keyCode === 39) {
+          rotateY(0.01);
+        }
+        else if (keyCode === 37) {
+          rotateY(-0.01);
+        }
         noStroke();
         texture(img);
         sphere(200, 100, 100);
       }
-        function mouseDragged() {
-          rotateY(10);
-        }
     </script>
   </body>
 </html>
