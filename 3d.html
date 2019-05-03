@@ -20,8 +20,8 @@
         background(255);
         var locX = mouseX;
         var locY = mouseY;
-        if (mouseIsPressed) {
-          rotateY(locX);
+        if (mouseDragged()) {
+          rotateY(0.01);
         }
         noStroke();
         texture(img);
