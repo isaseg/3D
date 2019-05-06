@@ -3,18 +3,30 @@
     <script src="p5.min.js"></script>
   </head>
   <body>
-    <h1 id="accel"></h1>
+    <h1 id="ax"></h1>
+    <h1 id="ay"></h1>
     
     <script>
-    var d;
+    var ax;
+    var ay;
+    var highX = accelerationX;
+    var highY = accelerationY;
     
       function setup() {
         createCanvas(window.innerWidth, window.innerHeight);
       }
       
       function draw() {
-        d = accelerationX;
-        document.getElementById('accel').innerHTML = d;
+        ax = accelerationX;
+        ay = accelerationY;
+        if (accelerationX > highX) {
+          highX = accelerationX;
+        }
+        if (accelerationY > highY) {
+          highY = accelerationY;
+        }
+        document.getElementById('ax').innerHTML = "Highest X speed: " + highX;
+        document.getElementById('ay').innerHTML = "Highest Y speed: " + highY;
       }
     </script>
   </body>
