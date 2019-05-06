@@ -19,11 +19,11 @@
       function draw() {
         ax = accelerationX;
         ay = accelerationY;
-        if (accelerationX > highX) {
-          highX = accelerationX;
+        if (ax > highX) {
+          highX = ax;
         }
-        if (accelerationY > highY) {
-          highY = accelerationY;
+        if (ay > highY) {
+          highY = ay;
         }
         document.getElementById('ax').innerHTML = "Highest X speed: " + highX;
         document.getElementById('ay').innerHTML = "Highest Y speed: " + highY;
