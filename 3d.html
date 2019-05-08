@@ -1,6 +1,13 @@
 <html>
   <head>
     <script src="p5.min.js"></script>
+    <style>
+      body {
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
   </head>
   <body>
     
@@ -21,10 +28,10 @@
         var locX = mouseX;
         var locY = mouseY;
         if (keyCode === 39) {
-          rotateY(0.01);
+          rotateY(frameRate * 0.01);
         }
         else if (keyCode === 37) {
-          rotateY(-0.01);
+          rotateY(frameRate * -0.01);
         }
         noStroke();
         texture(img);
